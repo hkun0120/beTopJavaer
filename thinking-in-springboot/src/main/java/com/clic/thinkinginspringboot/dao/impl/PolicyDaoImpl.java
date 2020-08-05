@@ -5,7 +5,9 @@ import com.clic.thinkinginspringboot.dao.PolicyDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -13,6 +15,7 @@ import java.util.List;
  * @author: H.K
  * @create: 2020-08-04 17:23
  */
+@Repository
 public class PolicyDaoImpl implements PolicyDao {
     @Autowired
     JdbcTemplate jdbcTemplate;
@@ -20,7 +23,7 @@ public class PolicyDaoImpl implements PolicyDao {
     @Override
     public void addPolicy(Policy policy) {
         String sql = "insert into policy(cntrNo,applNo,applDate) values (?,?,?)";
-        jdbcTemplate.update(policy.getCntrNo(),policy.getApplNo(),policy.getApplDate());
+        jdbcTemplate.update(sql,policy.getCntrNo(),policy.getApplNo(),policy.getApplDate());
     }
 
     @Override
