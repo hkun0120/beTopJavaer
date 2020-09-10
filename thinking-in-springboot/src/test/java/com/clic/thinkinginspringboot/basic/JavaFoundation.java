@@ -19,6 +19,7 @@ public class JavaFoundation {
         json();
         date();
         A();
+        div();;
     }
 
     public static void json(){
@@ -29,6 +30,13 @@ public class JavaFoundation {
         System.out.println(jsonArray.toJSONString());
     }
 
+    public static void div(){
+        int a = 7;
+        String b = "17";
+        Float f =99f;
+        System.out.println(Float.parseFloat(b)/a);
+        System.out.println(f/a);
+    }
     private static void date() throws ParseException {
         String d = "1990-01-02";
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");

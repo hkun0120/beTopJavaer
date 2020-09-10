@@ -1,8 +1,10 @@
 package com.clic.thinkinginspringboot.controller;
 
 import com.clic.thinkinginspringboot.bean.Policy;
+import com.clic.thinkinginspringboot.service.ExecutorService;
 import com.clic.thinkinginspringboot.service.PolicyService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,6 +15,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 /**
  * @description:
@@ -24,6 +27,9 @@ import java.util.List;
 public class PolicyController {
     @Autowired
     PolicyService policyService;
+
+    @Autowired
+    ExecutorService executorService;
 
     @PostMapping("add")
     public void add(Policy policy){
@@ -38,4 +44,10 @@ public class PolicyController {
     public List<Policy> queryAll(){
         return policyService.queryAll();
     }
+
+    @GetMapping("test")
+    public void test() throws ExecutionException, InterruptedException {
+        executorService.test();
+    }
+
 }
