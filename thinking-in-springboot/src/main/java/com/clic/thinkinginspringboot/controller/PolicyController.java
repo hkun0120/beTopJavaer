@@ -50,4 +50,9 @@ public class PolicyController {
         executorService.test();
     }
 
+    @GetMapping("testOrder")
+    public void testOrder() throws ExecutionException, InterruptedException {
+        executorService.orderThread();
+    }
+
 }
