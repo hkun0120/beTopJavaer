@@ -11,6 +11,6 @@ public class oo {
     public static void main(String[] args) {
         String a = "2020120000845410538328";
         System.out.println(a.substring(10,13));
-        System.out.println(a);
+        System.out.println("0".toUpperCase());
     }
 }
