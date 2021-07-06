@@ -15,7 +15,7 @@ import java.util.HashMap;
 public class Code07_TargetSum {
     public static int findTargetWays(int arr[],int s) {
         process1(arr,0,s);
-        return  process2(arr,0,s,new HashMap<>());
+        return  process2(arr,0,s,new HashMap<Integer, HashMap<Integer, Integer>>());
     }
 
     // 动态规划的方法
@@ -61,7 +61,7 @@ public class Code07_TargetSum {
         }
         // 把结果塞进hashmap里面
         if (!dp.containsKey(index)) {
-            dp.put(index,new HashMap<>());
+            dp.put(index,new HashMap<Integer, Integer>());
         }
         // 比如说 index= 3， rest =38,ans =200,意思是递归到index=3的时候，如果要凑出结果=38的数字，有200种方法数
         // 把他们放到hashmap里面，这样的话，下次在遇到就能直接取出来了
